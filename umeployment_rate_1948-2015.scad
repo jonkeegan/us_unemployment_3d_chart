@@ -101,7 +101,7 @@ module month(theVal, whichMonth){
 // render one year's values as a column of chips 
 module year(theYear){
 		union(){
-			for ( j = [0 : 11] ){
+			for ( j = [0 : len(theMonths)-1] ){
 				translate([0,row_y_space * theYear,0]){
 					month(theData[theYear][j], j);	
 				}
@@ -112,7 +112,7 @@ module year(theYear){
 // render the full object...
 module full_dataset(){
 	union(){
-		for ( k = [0 : 66] ){
+		for ( k = [0 : len(theYears)-2] ){
 			translate([0,0,0]){
 			year(k);
 			}
